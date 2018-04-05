@@ -1,0 +1,174 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+
+    <physics type="ode">
+      <max_step_size>0.02</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>50</real_time_update_rate>
+    </physics>
+
+
+    <include>
+      <uri>model://asphalto_plane</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+     <include>
+      <uri>model://sun</uri>
+    </include> 
+
+    <model name="uwb_anchor0">
+      <pose>0 0 2.44 0 0 0</pose>
+      <static>1</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="uwb_anchor1">
+      <pose>0 9.58 2.44 0 0 0</pose>
+      <static>1</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="uwb_anchor2">
+      <pose>16.8 9.58 2.44 0 0 0</pose>
+      <static>1</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="uwb_anchor3">
+      <pose>16.8 0 2.44 0 0 0</pose>
+      <static>1</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="uwb_anchor4">
+      <pose>22.8 4.87 2.44 0 0 0</pose>
+      <static>1</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="uwb_anchor5">
+      <pose>6.1 9.58 2.44 0 0 0</pose>
+      <static>1</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="forklift_full">
+
+     <pose>0 0 3.0 0 0 0</pose>
+
+     
+      <include>
+        <uri>model://ForkliftSensors</uri>
+        <name>forkliftSensors</name>
+        <pose>0.0 0.0 0.840 0 0 0</pose>
+      </include>
+
+      
+      <include>
+        <uri>model://pioneer3at</uri>
+        <name>pioneer3at</name>
+        <pose>0.0 0.0 0.0 0 0 0</pose>
+      </include>
+
+
+     <joint name="sensors_joint" type="fixed">
+        <child>forkliftSensors::arm</child>
+        <parent>pioneer3at::chassis</parent>
+      </joint>
+
+
+      <include>
+        <uri>model://flow_cam</uri>
+        <name>camera</name>
+        <pose>0 0.493 3.0 0 1.5708 1.5708</pose>
+      </include>
+    
+      <joint name="flow_joint" type="revolute">
+        <child>camera::link</child>
+        <parent>forkliftSensors::link_px4flow_0</parent>
+        <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
+       </axis>
+      </joint>
+
+    </model>
+
+    <population name="magnet_interferers">
+      <model name="interferer">
+        <static>true</static>
+        <link name="link">
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>0.1 0.1 0.1</size>
+              </box>
+            </geometry>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+          <self_collide>0</self_collide>
+          <kinematic>1</kinematic>
+        </link>
+      </model>
+      <model_count>10</model_count>
+      <pose>10 5 2 0 0 0</pose>
+      <box>
+        <size>20 10 4</size>
+      </box>
+      <distribution>
+        <type>random</type>
+      </distribution>
+    </population> 
+  </world>
+
+</sdf>

@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+
+    <include>
+      <uri>model://asphalto_plane</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+     <include>
+      <uri>model://sun</uri>
+    </include> 
+      
+      <include>
+        <uri>model://pioneer3at</uri>
+        <name>pioneer3at</name>
+        <pose>0.0 0.0 0.0 0 0 0</pose>
+      </include> 
+
+
+  </world>
+
+</sdf>
