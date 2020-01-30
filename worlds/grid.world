@@ -1,0 +1,90 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+
+
+    <include>
+      <uri>model://asphalt_plane</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+     <include>
+      <uri>model://sun</uri>
+    </include> 
+
+    <include>
+      <uri>model://GridScenario</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+
+
+    <model name="uwb_anchor0">
+      <pose>9 2.5 1.280 0 0 0</pose>
+      <static>1</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="uwb_anchor1">
+      <pose>9 8 1.280 0 0 0</pose>
+      <static>1</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="uwb_anchor2">
+      <pose>1.5 8 1.280 0 0 0</pose>
+      <static>1</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="uwb_anchor3">
+      <pose>0 2.5 1.280 0 0 0</pose>
+      <static>1</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="uwb_anchor4">
+      <pose>1.5 0 1.280 0 0 0</pose>
+      <static>1</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+
+</sdf>
